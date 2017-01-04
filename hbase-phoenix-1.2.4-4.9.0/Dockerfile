@@ -1,0 +1,10 @@
+FROM vvaks/hbase:1.2.4
+
+WORKDIR /opt
+
+ADD install-phoenix.sh /opt/install-phoenix.sh
+RUN ./install-phoenix.sh
+
+WORKDIR /opt/hbase/bin
+
+CMD /opt/hbase/bin/start-pseudo-distributed.sh
