@@ -5,6 +5,6 @@ tar -xzf apache-phoenix-4.9.0-HBase-1.2-bin.tar.gz
 rm -f apache-phoenix-4.9.0-HBase-1.2-bin.tar.gz
 ln -s /opt/apache-phoenix-4.9.0-HBase-1.2-bin /opt/phoenix
 
-cp /opt/phoenix/phoenix-server-4.9.0-HBase-1.2.jar /opt/hbase/lib/
+cp /opt/phoenix/phoenix-4.9.0-HBase-1.2-server.jar /opt/hbase/lib/
 cp /opt/phoenix/phoenix-core-4.9.0-HBase-1.2.jar /opt/hbase/lib/
 
