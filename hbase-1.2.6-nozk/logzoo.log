@@ -1,0 +1,1 @@
+./start-pseudo-distributed.sh: line 3: /opt/hbase/bin/hbase: No such file or directory
