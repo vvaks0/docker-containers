@@ -30,4 +30,8 @@
         <value>0.0.0.0</value>
     </property>
 	
+	<property>
+		<name>hbase.rootdir</name>
+		<value>/opt/data/hbase</value>
+	</property>
 </configuration>
