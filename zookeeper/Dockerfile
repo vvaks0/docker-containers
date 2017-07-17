@@ -23,7 +23,7 @@ RUN mv /opt/zookeeper-$VERSION /opt/zookeeper
 RUN cp /opt/zookeeper/conf/zoo_sample.cfg /opt/zookeeper/conf/zoo.cfg
 RUN mkdir -p /tmp/zookeeper
 
-EXPOSE 2181 2888 3888
+EXPOSE 2181
 
 WORKDIR /opt/zookeeper
 

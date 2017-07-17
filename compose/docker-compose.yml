@@ -1,0 +1,49 @@
+version: '3'
+services:        
+    orientdb:
+        image: orientdb:latest
+        ports:
+            - "2424:2424"
+            - "2480:2480"
+        environment:
+            - ORIENTDB_ROOT_PASSWORD=root
+
+    zookeeper:
+        image: vvaks/zookeeper:3.4.10
+        ports:
+            - "2181:2181"
+
+    hbase:
+        image: vvaks/hbase-phoenix-nozk:4.9.0
+        hostname: hbase
+        ports:
+            - "60010:60010"
+            - "60000:60000"
+            - "60020:60020"
+            - "60030:60030"  
+        depends_on:
+            - zookeeper
+        environment:
+            - ZK_HOST_IP=192.168.1.107 
+            - ZK_HOSTNAME=HW11812
+            - ZK_PORT=2181
+        #extra_hosts:
+        #    - "somehost:162.242.195.82"
+        #    - "otherhost:50.31.209.229"
+
+    kafka:
+        image: vvaks/kafka-nozk:0.10.2
+        ports:
+            - "9092:9092"
+        depends_on:
+            - zookeeper
+        environment:
+            - ADVERTISED_HOST_IP=192.168.1.107 
+            - ADVERTISED_HOSTNAME=HW11812
+            - ADVERTISED_PORT=9092 
+            - ZK_HOST_IP=192.168.1.107 
+            - ZK_HOSTNAME=HW11812
+            - ZK_PORT=2181
+        #extra_hosts:
+        #    - "somehost:162.242.195.82"
+        #    - "otherhost:50.31.209.229"
